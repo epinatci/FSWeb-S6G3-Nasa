@@ -3,6 +3,9 @@ import "./App.css";
 import Image from "./components/image";
 import Youtube from "./components/youtube";
 import axios from "axios";
+import { Title } from "./components/title";
+import { Explanation } from "./components/title";
+import { Date } from "./components/title";
 
 // const dummyData = {
 //   copyright: "Stephen Kennedy ",
@@ -35,16 +38,16 @@ const changeHandler = (event)=>{
   return (
     <div className="App">
       <input type="date" value={date} onChange={changeHandler}/>
-      <h1>{data.title}</h1>
+      <Title>{data.title}</Title>
       {data.media_type === "image"
       ? <Image dataurl = {data.url}/>
       :<Youtube dataurl={data.url}/>}
-      <p className="explanation">
+      <Explanation>
         {data.explanation}
-      </p>
-      <p className="date">
+      </Explanation>
+      <Date>
         {data.date}
-      </p>
+      </Date>
     </div>
   );
 }
